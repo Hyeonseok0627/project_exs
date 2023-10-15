@@ -1,0 +1,25 @@
+package com.lecture101.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+@Getter @Setter
+public class OrderDto {
+
+    @NotNull(message = "상품 아이디는 필수 입력 값입니다.")
+    private Long itemId;
+
+    @Min(value = 1, message = "최소 주문 수량은 1개 입니다.")
+    @Max(value = 999, message = "최대 주문 수량은 999개 입니다.")
+    private int count;
+
+
+    // 날짜/주문 관련 코드
+    @NotNull(message = "날짜를 선택해야 합니다.")
+    private String selectedDate;
+
+}
